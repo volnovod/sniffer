@@ -46,6 +46,7 @@ public class MikrotikLogging extends Thread {
         try {
             this.apiConnection = ApiConnection.connect(getIpAddress(), getPort(), 2000);
             System.out.println("good");
+            System.out.println(this.getName());
         } catch (MikrotikApiException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
