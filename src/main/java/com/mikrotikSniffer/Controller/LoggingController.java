@@ -13,7 +13,7 @@ import me.legrange.mikrotik.MikrotikApiException;
  */
 public class LoggingController {
 
-    private MikrotikLogging logging = null;
+    private MikrotikConnection mikrotikConnection = null;
     private ApiConnection connection;
 
     public ApiConnection getConnection() {
@@ -22,6 +22,14 @@ public class LoggingController {
 
     public void setConnection(ApiConnection connection) {
         this.connection = connection;
+    }
+
+    public MikrotikConnection getMikrotikConnection() {
+        return mikrotikConnection;
+    }
+
+    public void setMikrotikConnection(MikrotikConnection mikrotikConnection) {
+        this.mikrotikConnection = mikrotikConnection;
     }
 
     @FXML
@@ -44,14 +52,14 @@ public class LoggingController {
 
     @FXML
     public void logging(){
-        System.out.println();
         if ( this.loginField.getLength() != 0 ){
-            this.logging = new MikrotikLogging(ipAddressField.getText(), Integer.valueOf(portField.getText()));
-            this.logging.run();
-            this.setConnection(this.logging.getApiConnection());
+            this.mikrotikConnection = new MikrotikConnection(ipAddressField.getText(), Integer.valueOf(portField.getText()));
+            this.mikrotikConnection.run();
+            this.setConnection(this.mikrotikConnection.getApiConnection());
             try {
-                this.connection.login(this.loginField.getText(), this.passwordField.getText());
-                this.connection.execute("/system/reboot");
+                if (this.connection!=null){
+                    this.connection.login(this.loginField.getText(), this.passwordField.getText());
+                }
             } catch (MikrotikApiException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

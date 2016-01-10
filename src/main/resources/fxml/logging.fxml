@@ -27,16 +27,16 @@
          <font>
             <Font size="17.0" />
          </font></PasswordField>
-      <TextField fx:id="ipAddressField" layoutX="150.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" promptText="192.168.88.1">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="portField" layoutX="330.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0" promptText="8728">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
+      <!--<TextField fx:id="ipAddressField" layoutX="150.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="170.0" promptText="192.168.88.1">-->
+         <!--<font>-->
+            <!--<Font size="17.0" />-->
+         <!--</font>-->
+      <!--</TextField>-->
+      <!--<TextField fx:id="portField" layoutX="330.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="80.0" promptText="8728">-->
+         <!--<font>-->
+            <!--<Font size="17.0" />-->
+         <!--</font>-->
+      <!--</TextField>-->
       <Button fx:id="loggingButton" layoutX="40.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#logging" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 20;" text="Вхід" />
       <Button fx:id="exitButton" layoutX="200.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="50.0" prefWidth="120.0" style="-fx-background-radius: 20;" text="Вихід" />
       <ImageView fitHeight="103.0" fitWidth="286.0" layoutX="165.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
