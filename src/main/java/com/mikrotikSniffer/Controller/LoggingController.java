@@ -15,6 +15,7 @@ public class LoggingController {
 
     private MikrotikConnection mikrotikConnection = null;
     private ApiConnection connection;
+    private MikrotikLogging mikrotikLogging;
 
     public ApiConnection getConnection() {
         return connection;
@@ -53,19 +54,16 @@ public class LoggingController {
     @FXML
     public void logging(){
         if ( this.loginField.getLength() != 0 ){
-            this.mikrotikConnection = new MikrotikConnection(ipAddressField.getText(), Integer.valueOf(portField.getText()));
-            this.mikrotikConnection.run();
-            this.setConnection(this.mikrotikConnection.getApiConnection());
-            try {
-                if (this.connection!=null){
-                    this.connection.login(this.loginField.getText(), this.passwordField.getText());
+            this.mikrotikLogging = new MikrotikLogging(this.mikrotikConnection.getApiConnection(),
+                    this.loginField.getText(), this.passwordField.getText());
+                if (this.mikrotikLogging!=null){
+                    this.mikrotikLogging.run();
+                    if (this.mikrotikLogging.isLoggingStatus()){
+                        this.setConnection(this.mikrotikConnection.getApiConnection());
+                        System.out.println("asdlmgkldmsfgkmdfs");
+                    }
                 }
-            } catch (MikrotikApiException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
-                e.printStackTrace();
-            }
+
         }
     }
 

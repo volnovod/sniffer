@@ -49,6 +49,7 @@ public class MikrotikConnection extends Thread {
     public MikrotikConnection(String ipAddress, int port) {
         this.ipAddress = ipAddress;
         this.port = port;
+        this.connectioinStatus = false;
     }
 
     @Override

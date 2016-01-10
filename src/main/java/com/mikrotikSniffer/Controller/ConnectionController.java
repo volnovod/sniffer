@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import me.legrange.mikrotik.MikrotikApiException;
 
 /**
  * Created by Victor on 10.01.2016.
@@ -70,10 +69,8 @@ public class ConnectionController {
             this.mikrotikConnection = new MikrotikConnection(ipAddressField.getText(), Integer.valueOf(portField.getText()));
             this.mikrotikConnection.run();
             if (this.mikrotikConnection.isConnectioinStatus()){
-                System.out.println("Connection Okkk");
                 this.loggingController.setMikrotikConnection(this.mikrotikConnection);
                 this.primaryStage.setScene(this.getLoggingScene());
-                this.primaryStage.show();
             }
         }
 
